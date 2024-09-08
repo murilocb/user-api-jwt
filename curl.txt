@@ -1,0 +1,44 @@
+curl --request GET \
+  --url http://localhost:3000/swapi/character/1
+
+curl --request GET \
+  --url 'http://localhost:3000/swapi/search?query=skywalker'
+
+curl --request POST \
+  --url http://localhost:3000/users \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"email": "teste@teste.com",
+	"name": "User",
+	"password": "User1234"
+}'
+
+curl --request POST \
+  --url http://localhost:3000/users/login \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"email": "teste@teste.com",
+	"password": "User1234"
+}'
+
+curl --request GET \
+  --url http://localhost:3000/users \
+  --header 'Authorization: Bearer yourToken'
+
+curl --request GET \
+  --url http://localhost:3000/users/1 \
+  --header 'Authorization: Bearer yourToken'
+
+curl --request PUT \
+  --url http://localhost:3000/users/1 \
+  --header 'Authorization: Bearer yourToken' \
+  --header 'Content-Type: application/json' \
+  --data '{
+	"email": "teste@teste.com",
+	"name": "User update",
+	"password": "User1234"
+}'
+
+curl --request DELETE \
+  --url http://localhost:3000/users/1 \
+  --header 'Authorization: Bearer yourToken'
